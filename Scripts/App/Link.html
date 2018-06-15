@@ -1,0 +1,38 @@
+﻿<style>
+    .ngdialog.ngdialog-theme-flat .ngdialog-content
+    {
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        box-shadow: 0 0 3px 3px rgba(146, 141, 145, 0.75);
+        -webkit-box-shadow: 0 0 3px 3px rgba(146, 141, 145, 0.75);
+        width: 400px;
+    }
+    .select2-container .select2-choice .select2-arrow
+    {
+
+    }
+</style>
+<div style="padding-bottom: 10px;">
+    <br />
+    <div style="width: 100%; height: 30px; padding-top: 5px; background-color: #888; text-align: center; color: #fff; font-weight: bolder; font-size: 1.5em">
+        <span>Classer dans un thème</span>
+    </div>
+    <table style="margin: 15px;">
+        <tr>
+            <td style="font-weight:bold">Choisissez le thème : </td>
+        </tr>
+        <tr>
+            <td>
+                <select ui-select2="" data-ng-model="link.selectedTheme" style="width:360px;">
+                    <option data-ng-repeat="theme in themes" value="{{theme.idTheme}}">{{theme.themeName}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input style="float: left" class="actionButton" type="button" value="Annuler" data-ng-click="cancelLink()" />
+                <input style="float: right" class="actionButton" type="button" value="Valider" data-ng-click="saveLink()" />
+            </td>
+        </tr>
+    </table>
+</div>

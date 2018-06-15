@@ -1,0 +1,86 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          carrot2-dcs
+# Required-Start:    $local_fs $remote_fs $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Provide Carrot2 DCS Server
+# Description: Provide Carrot2 DCS Server.
+### END INIT INFO
+
+# /etc/init.d/carrot2-dcs
+# Author : Bertrand FRUCHET <bertrand.fruchet@mydataball.com>
+# Date : 4/07/2017
+# Copyright : MyDataBall - R2C-SYSTEM
+
+# Carrot2-dcs directory is in /var/www/remasco/carrot2-dcs-3.15.1
+SDIR="/var/www/remasco/carrot2-dcs-3.15.1/"
+PID=/dev/null
+# The following part always gets executed.
+echo "Carrot2 DCS Server Service"
+
+# The following part carries out specific functions depending on arguments.
+case "$1" in
+  start)
+    echo " * Starting Carrot2 DCS Server service"
+
+    if [ -f ${SDIR}/RUNNING_PID ]
+    then
+        PID=$(cat ${SDIR}/RUNNING_PID)
+
+        if ps -p $PID > /dev/null
+        then
+            echo "     Carrot2 DCS Server service already running ($PID)"
+            exit 1
+        else
+            echo "     Previous Execution of Carrot2 DCS Server service crashed ... deleting old RUNNING_PID"
+            rm -rf ${SDIR}/RUNNING_PID
+        fi
+    fi
+
+    cd ${SDIR}
+
+    echo "     starting..."
+#    nohup ./dcs.sh > /var/log/carrot2-dcs.log 2>&1&
+    if [ -z "$DCS_OPTS" ]; then
+        DCS_OPTS="-Xms64m -Xmx768m"
+    fi
+    nohup java $DCS_OPTS -Ddcs.war=war/carrot2-dcs.war -jar invoker.jar -cpdir lib org.carrot2.dcs.DcsApp >> /var/log/carrot2-dcs.log 2>&1& 
+    echo $! > ${SDIR}/RUNNING_PID
+# > ${DIR}/RUNNING_PID
+    ;;
+  stop)
+    echo " * Stopping Carrot2 DCS Server Service"
+
+    if [ ! -f ${SDIR}/RUNNING_PID ]
+    then
+        echo "     nothing to stop"
+        exit 1;
+    fi
+    echo "\n[system] init.d - Application stopped by Carrot2 DCS Server service\n" >> /var/log/carrot2-dcs.log
+    kill -TERM $(cat ${SDIR}/RUNNING_PID)
+    ;;
+  status)
+    if [ -f ${SDIR}/RUNNING_PID ]
+    then
+        PID=$(cat ${SDIR}/RUNNING_PID)
+        PORT=$(lsof -Pan -p $PID -i | awk '/LISTEN/ {print $9}')
+
+        if ps -p $PID > /dev/null
+        then
+            echo "     Carrot2 DCS Server service (PID $PID) is running on port $PORT"
+            exit 1
+        fi
+    else
+        echo "     Carrot2 DCS Server service is NOT running"
+        exit 1
+    fi
+    ;;
+  *)
+    echo "Usage: /etc/init.d/carrot2-dcs {start|stop|status}"
+    exit 1
+    ;;
+esac
+exit 0

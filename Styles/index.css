@@ -1,0 +1,256 @@
+html, body
+{
+    height: calc(100% - 12px);
+    margin: 5px;
+    font-family: sans-serif;
+}
+
+.container
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.leftPanel
+{
+    position: absolute;
+    left: 5px;
+    width: 248px;
+    height: calc(100% - 2px);
+    border: 1px solid #ddd;
+    background-color: #efefef;
+}
+
+.midPanel
+{
+    position: absolute;
+    left: 255px;
+/*    width: calc(100% - 420px); */
+    width: calc(100% - 520px);
+    height: 100%;
+    margin: 0 5px;
+}
+
+.rightPanel
+{
+    position: absolute;
+    right: 5px;
+/*    width: 198px; */
+    width: 248px;
+    height: calc(100% - 2px);
+    border: 1px solid #ddd;
+    background-color: #efefef;
+}
+
+.midContainer
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.queryBox
+{
+    position: relative;
+    top: 0px;
+    margin: 0 5px 5px 5px;
+    width: calc(100% - 10px);
+    height: 45px;
+    border: 1px solid #ddd;
+}
+
+    .queryBox input
+    {
+        width: calc(100% - 64px);
+        border: none;
+        height: 40px;
+        font-size: 24px;
+        margin-top: 2px;
+        padding-left: 10px;
+        color: #666;
+        outline: none;
+    }
+
+    .queryBox img
+    {
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+        .queryBox img:hover
+        {
+            opacity: 0.8;
+        }
+
+.detailHeader
+{
+    text-align: center;
+    padding-top: 9px;
+    font-size: 23px;
+    color: #666;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    height: 36px;
+    background-color: #666;
+    color: #fff;
+}
+
+.detailContainer
+{
+    padding: 2px;
+    overflow-y: auto;
+    height: calc(100% - 52px);
+}
+
+    .detailContainer table
+    {
+        font-size: 0.8em;
+    }
+
+        .detailContainer table tr:nth-child(2n+1)
+        {
+            font-weight: bold;
+        }
+
+        .detailContainer table tr:nth-child(2n+2) td
+        {
+            padding-bottom: 5px;
+        }
+
+.detailGroupBox
+{
+    padding: 5px 3px;
+    font-size: 0.8em;
+}
+
+    .detailGroupBox:nth-child(2n+1)
+    {
+        background-color: #fff;
+    }
+
+#netContainer
+{
+    position: absolute;
+    width: calc(100% - 10px);
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    height: calc(100% - 57px);
+    top: 55px;
+}
+
+.actionButton
+{
+    border: 1px solid #777;
+    background-color: #ddd;
+    color: #444;
+    padding: 5px;
+    cursor: pointer;
+    min-width: 100px;
+    margin-top: 15px;
+}
+
+    .actionButton:hover
+    {
+        background-color: #ccc;
+    }
+
+#loadingContainer
+{
+    display: none;
+    position: absolute;
+    width: 50%;
+    height: 20px;
+    background-color: #ccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loader
+{
+    position: absolute;
+    width: 0px;
+    height: 10px;
+    background-color: #888;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1px;
+}
+
+.addTheme
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+    .addTheme:hover
+    {
+        opacity: 1;
+    }
+
+.deleteButton
+{
+    height: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+    .deleteButton:hover
+    {
+        opacity: 1;
+    }
+
+.zipButton
+{
+    height: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+    .zipButton:hover
+    {
+        opacity: 1;
+    }
+
+.addHistoricButton
+{
+    height: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+    .addHistoricButton:hover
+    {
+        opacity: 1;
+    }
+
+h3.userInfo
+{
+    position: absolute;
+    top: -88px;
+    background-color: crimson;
+    padding: 20px;
+    z-index: 999;
+    margin: 0 5px !important;
+    width: calc(100% - 70px);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+    h3.userInfo:hover
+    {
+        top: 0px;
+    }

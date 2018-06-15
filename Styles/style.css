@@ -1,0 +1,51 @@
+	.text{
+	margin-top:20px;
+	margin-bottom: 20px;	
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align: center;
+	}	
+	
+	.center{
+	text-align: center;	
+	}
+
+	.input{
+	margin-left: 10%;
+	margin-top: 10px;
+	border-color: lightblue;
+	text-align: center;
+	}	
+	
+	.title{
+	text-shadow: 0 0 20px grey;
+	text-align: center;
+	}
+	
+#boxshadow {
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
+}
+
+#boxshadow img {
+    width: 100%;
+    border: 1px solid #8a4419;
+    border-style: inset;
+}
+
+#boxshadow::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; 
+    height: 100px;
+    bottom: 0;
+}	

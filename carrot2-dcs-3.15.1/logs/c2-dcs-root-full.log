@@ -1,0 +1,5 @@
+2018-05-29 22:50:54,291 [INFO ] [dcs] DCS request processor started.
+2018-05-29 22:50:54,348 [INFO ] [dcs] DCS started on port: 8080 [local: 8080]
+2018-05-29 22:51:45,838 [INFO ] [dcs] Processed 81 documents (~14.73 KB) from web using lingo [2.36s.]
+2018-05-29 22:51:50,236 [INFO ] [dcs] Processed 81 documents (~14.73 KB) from web using lingo [0.30s.]
+2018-05-30 00:07:23,446 [INFO ] [dcs] DCS stopped.
